@@ -12,7 +12,11 @@ function BookList({ books, deleteBook, editBook }) {
     );
   });
 
-  return <div>{renderBooks}</div>;
+  return (
+    <div className="p-4 flex flex-wrap gap-6 justify-center  md:justify-start">
+      {renderBooks}
+    </div>
+  );
 }
 
 export default BookList;
