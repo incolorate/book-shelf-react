@@ -27,10 +27,19 @@ function App() {
     });
   };
 
+  // New title
+  const editBook = (id, title) => {
+    setBooks((prevBooks) => {
+      return prevBooks.map((book) => {
+        return book.id === id ? { ...book, title: title } : book;
+      });
+    });
+  };
+  console.log(books);
   return (
     <div>
       <BookCreate createBook={createBook} />
-      <BookList deleteBook={deleteBook} books={books} />
+      <BookList deleteBook={deleteBook} books={books} editBook={editBook} />
     </div>
   );
 }
