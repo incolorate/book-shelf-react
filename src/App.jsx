@@ -6,6 +6,7 @@ import { nanoid } from "nanoid";
 function App() {
   const [books, setBooks] = useState([]);
 
+  // create a new book object
   const createBook = (title) => {
     setBooks((prevBooks) => [
       ...prevBooks,
@@ -15,10 +16,11 @@ function App() {
       },
     ]);
   };
+
   return (
     <div>
       <BookCreate createBook={createBook} />
-      <BookList />
+      <BookList books={books} />
     </div>
   );
 }
