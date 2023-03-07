@@ -17,10 +17,20 @@ function App() {
     ]);
   };
 
+  // delete a book
+
+  const deleteBook = (id) => {
+    setBooks((prevBooks) => {
+      return prevBooks.filter((book) => {
+        return book.id !== id;
+      });
+    });
+  };
+
   return (
     <div>
       <BookCreate createBook={createBook} />
-      <BookList books={books} />
+      <BookList deleteBook={deleteBook} books={books} />
     </div>
   );
 }
