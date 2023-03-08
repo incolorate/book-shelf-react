@@ -1,20 +1,24 @@
 import { useState } from "react";
 import BookCreate from "./components/BookCreate";
 import BookList from "./components/BookList";
-import { nanoid } from "nanoid";
+import axios from "axios";
 
 function App() {
   const [books, setBooks] = useState([]);
 
   // create a new book object
-  const createBook = (title) => {
-    setBooks((prevBooks) => [
-      ...prevBooks,
-      {
-        id: nanoid(),
-        title: title,
-      },
-    ]);
+  const createBook = async (title) => {
+    const response = await axios.post(`http://localhost:3000/books`, {
+      title,
+    });
+    console.log(response);
+    // setBooks((prevBooks) => [
+    //   ...prevBooks,
+    //   {
+    //     id: nanoid(),
+    //     title: title,
+    //   },
+    // ]);
   };
 
   // delete a book
@@ -35,7 +39,7 @@ function App() {
       });
     });
   };
-  console.log(books);
+
   return (
     <div>
       <BookCreate createBook={createBook} />
