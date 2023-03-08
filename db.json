@@ -5,8 +5,12 @@
       "title": "Harry Potter"
     },
     {
-      "title": "red",
+      "title": "Festinul Ciorilor",
       "id": 2
+    },
+    {
+      "title": "O coarda prea intinsa",
+      "id": 3
     }
   ]
 }
